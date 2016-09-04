@@ -2,7 +2,7 @@
 
 describe('Controller: IndexController', function() {
 
-    beforeEach(module('confusionApp'));
+    beforeEach(module('callCenterApp'));
 
     var IndexController, scope, $httpBackend;
 

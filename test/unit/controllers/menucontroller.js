@@ -1,7 +1,7 @@
 describe('Controller: MenuController', function () {
 
     // load the controller's module
-    beforeEach(module('confusionApp'));
+    beforeEach(module('callCenterApp'));
 
     var MenuController, scope, $httpBackend;
     // Initialize the controller and a mock scope

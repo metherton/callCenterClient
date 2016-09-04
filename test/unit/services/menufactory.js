@@ -4,7 +4,7 @@ describe('Service: MenuFactory', function() {
 
     var mockResource;
 
-    beforeEach(module('confusionApp'));
+    beforeEach(module('callCenterApp'));
 
     beforeEach(module(function($provide) {
         mockResource = function() {

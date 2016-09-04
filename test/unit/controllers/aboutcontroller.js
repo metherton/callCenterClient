@@ -2,7 +2,7 @@
 
 describe('Controller: AboutController', function() {
 
-    beforeEach(module('confusionApp'));
+    beforeEach(module('callCenterApp'));
 
     var AboutController, scope, $httpBackend;
 
