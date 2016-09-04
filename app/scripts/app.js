@@ -3,7 +3,7 @@
 angular.module('callCenterApp', ['ui.router', 'ngResource'])
 .config(function($stateProvider, $urlRouterProvider) {
         $stateProvider
-        
+
             // route for the home page
             .state('app', {
                 url:'/',
@@ -13,7 +13,7 @@ angular.module('callCenterApp', ['ui.router', 'ngResource'])
                     },
                     'content': {
                         templateUrl : 'views/home.html',
-                        controller  : 'IndexController'
+                        controller  : 'IndexController as vm'
                     },
                     'footer': {
                         templateUrl : 'views/footer.html',
@@ -21,25 +21,25 @@ angular.module('callCenterApp', ['ui.router', 'ngResource'])
                 }
 
             })
-        
+
             // route for the aboutus page
             .state('app.aboutus', {
                 url:'aboutus',
                 views: {
                     'content@': {
                         templateUrl : 'views/aboutus.html',
-                        controller  : 'AboutController'                  
+                        controller  : 'AboutController'
                     }
                 }
             })
-        
+
             // route for the contactus page
             .state('app.contactus', {
                 url:'contactus',
                 views: {
                     'content@': {
                         templateUrl : 'views/contactus.html',
-                        controller  : 'ContactController'                  
+                        controller  : 'ContactController'
                     }
                 }
             })
@@ -65,7 +65,7 @@ angular.module('callCenterApp', ['ui.router', 'ngResource'])
                    }
                 }
             });
-    
+
         $urlRouterProvider.otherwise('/');
     })
 ;

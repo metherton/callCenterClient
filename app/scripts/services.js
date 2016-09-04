@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('callCenterApp')
-    .constant("baseURL","http://localhost:3000/")
+    .constant("baseURL","http://localhost:3001/")
 
     .service('menuFactory', ['$resource', 'baseURL', function($resource,baseURL) {
 
@@ -16,9 +16,9 @@ angular.module('callCenterApp')
         }])
 
         .factory('corporateFactory', ['$resource', 'baseURL', function($resource,baseURL) {
-    
+
             var corpfac = {};
-    
+
             corpfac.getLeaders = function(){
                 return $resource(baseURL+"leadership/:id",null,  {'update':{method:'PUT' }});
             };
@@ -28,6 +28,10 @@ angular.module('callCenterApp')
         .factory('feedbackFactory', ['$resource', 'baseURL', function($resource,baseURL) {
 
             return $resource(baseURL +"feedback/:id", null);
+        }])
+        .factory('validationFactory', ['$resource', 'baseURL', function($resource,baseURL) {
+
+            return $resource(baseURL + "api/setup/validate", null);
         }])
 
 ;

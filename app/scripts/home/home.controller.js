@@ -111,45 +111,59 @@ angular.module('callCenterApp')
         }])
 
         // implement the IndexController and About Controller here
-        .controller('IndexController', ['$scope', 'menuFactory', 'corporateFactory', function($scope, menuFactory, corporateFactory) {
-            $scope.showDish = false;
-            $scope.message="Loading ...";
-            $scope.dish = menuFactory.getDishes().get({id:0})
-                .$promise.then(
-                    function(response){
-                        $scope.dish = response;
-                        $scope.showDish = true;
-                    },
-                    function(response) {
-                        $scope.message = "Error: "+response.status + " " + response.statusText;
-                    }
-                );
+        .controller('IndexController', ['$scope', 'menuFactory', 'corporateFactory', 'validationFactory', function($scope, menuFactory, corporateFactory, validationFactory) {
 
-            $scope.showPromotion = false;
-            $scope.messagePromotion = "Loading ...";
-            $scope.promotion = menuFactory.getPromotions().get({id:0})
-                .$promise.then(
-                    function(response){
-                        $scope.promotion = response;
-                        $scope.showPromotion = true;
-                    },
-                    function(response) {
-                        $scope.messagePromotion = "Error: "+response.status + " " + response.statusText;
-                    }
-                );
+            var vm = this;
+            var hasValidSetup = false;
 
-            $scope.showLeader = false;
-            $scope.messageLeader = "Loading ...";
-            $scope.leader = corporateFactory.getLeaders().get({id:3})
-                .$promise.then(
-                    function(response){
-                        $scope.leader = response;
-                        $scope.showLeader = true;
-                    },
-                    function(response) {
-                        $scope.messageLeader = "Error: "+response.status + " " + response.statusText;
-                    }
-                );
+            vm.hasValidSetup = function() {
+                return hasValidSetup;
+            };
+
+            validationFactory.get({}, function onSuccess(response) {
+                    hasValidSetup = true;
+                }, function onError(response) {
+                    hasValidSetup = false;
+                });
+
+            //$scope.showDish = false;
+            //$scope.message="Loading ...";
+            //$scope.dish = menuFactory.getDishes().get({id:0})
+            //    .$promise.then(
+            //        function(response){
+            //            $scope.dish = response;
+            //            $scope.showDish = true;
+            //        },
+            //        function(response) {
+            //            $scope.message = "Error: "+response.status + " " + response.statusText;
+            //        }
+            //    );
+            //
+            //$scope.showPromotion = false;
+            //$scope.messagePromotion = "Loading ...";
+            //$scope.promotion = menuFactory.getPromotions().get({id:0})
+            //    .$promise.then(
+            //        function(response){
+            //            $scope.promotion = response;
+            //            $scope.showPromotion = true;
+            //        },
+            //        function(response) {
+            //            $scope.messagePromotion = "Error: "+response.status + " " + response.statusText;
+            //        }
+            //    );
+            //
+            //$scope.showLeader = false;
+            //$scope.messageLeader = "Loading ...";
+            //$scope.leader = corporateFactory.getLeaders().get({id:3})
+            //    .$promise.then(
+            //        function(response){
+            //            $scope.leader = response;
+            //            $scope.showLeader = true;
+            //        },
+            //        function(response) {
+            //            $scope.messageLeader = "Error: "+response.status + " " + response.statusText;
+            //        }
+            //    );
 
         }])
 
