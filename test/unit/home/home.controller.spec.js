@@ -10,7 +10,7 @@ describe('Controller: IndexController', function() {
 
         $httpBackend = _$httpBackend_;
 
-        $httpBackend.expectGET('http://localhost:3000/api/setup/validate').respond({});
+        $httpBackend.expectGET('http://localhost:3001/api/setup/validate').respond({});
 
 
         scope = $rootScope.$new();
@@ -19,10 +19,12 @@ describe('Controller: IndexController', function() {
            menuFactory: menuFactory,
            corporateFactory: corporateFactory
         });
+        expect(IndexController.isValidating()).toBeTruthy();
         $httpBackend.flush();
     }));
 
     it('should validate setup', function() {
+        expect(IndexController.isValidating()).toBeFalsy();
         expect(IndexController.hasValidSetup()).toBeTruthy();
     });
 

@@ -115,15 +115,22 @@ angular.module('callCenterApp')
 
             var vm = this;
             var hasValidSetup = false;
+            var validating = true;
 
             vm.hasValidSetup = function() {
                 return hasValidSetup;
             };
 
+            vm.isValidating = function() {
+                return validating;
+            };
+
             validationFactory.get({}, function onSuccess(response) {
                     hasValidSetup = true;
+                    validating = false;
                 }, function onError(response) {
                     hasValidSetup = false;
+                    validating = false;
                 });
 
             //$scope.showDish = false;
