@@ -126,12 +126,12 @@ angular.module('callCenterApp')
             };
 
             validationFactory.get({}, function onSuccess(response) {
-                    hasValidSetup = true;
-                    validating = false;
-                }, function onError(response) {
-                    hasValidSetup = false;
-                    validating = false;
-                });
+                hasValidSetup = true;
+                validating = false;
+            }, function onError(response) {
+                hasValidSetup = false;
+                validating = false;
+            });
 
             //$scope.showDish = false;
             //$scope.message="Loading ...";

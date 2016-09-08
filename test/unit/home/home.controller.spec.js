@@ -28,12 +28,4 @@ describe('Controller: IndexController', function() {
         expect(IndexController.hasValidSetup()).toBeTruthy();
     });
 
-    xit('should create promotions with 1 promotion fetched from xhr', function() {
-       expect(scope.promotion).toBeDefined();
-    });
-
-    xit('should create leadership with 1 leader fetched from xhr', function() {
-        expect(scope.leader).toBeDefined();
-    });
-
 });

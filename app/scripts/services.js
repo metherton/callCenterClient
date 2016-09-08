@@ -29,8 +29,10 @@ angular.module('callCenterApp')
 
             return $resource(baseURL +"feedback/:id", null);
         }])
+        .factory('loginFactory', ['$resource', 'baseURL', function($resource, baseURL) {
+            return $resource(baseURL +"api/agents/login/:id", null);
+        }])
         .factory('validationFactory', ['$resource', 'baseURL', function($resource,baseURL) {
-
             return $resource(baseURL + "api/setup/validate", null);
         }])
 
