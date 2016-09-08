@@ -3,8 +3,6 @@
 angular.module('callCenterApp', ['ui.router', 'ngResource'])
 .config(function($stateProvider, $urlRouterProvider) {
 
-    console.log('goto agent screen');
-
         $stateProvider
 
             // route for the home page
@@ -51,7 +49,7 @@ angular.module('callCenterApp', ['ui.router', 'ngResource'])
                 views: {
                     'content@': {
                         templateUrl : 'views/contactus.html',
-                        controller  : 'ContactController'
+                         controller  : 'ContactController'
                     }
                 }
             })

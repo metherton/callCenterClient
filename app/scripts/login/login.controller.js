@@ -11,10 +11,6 @@ angular.module('callCenterApp')
                 }
             };
 
-//            var endpoint = navigator.userAgent.toLowerCase() + Math.floor((Math.random() * 1000) + 1);
-
-  //          $http.post('/api/agents/login', { worker: $scope.worker, endpoint: endpoint })
-
             vm.doLogin = function() {
                 loginFactory.save(vm.loginDetails, function() {
                     $state.go('app.agent');

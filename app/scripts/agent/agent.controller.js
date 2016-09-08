@@ -1,9 +1,12 @@
 'use strict';
 
 angular.module('callCenterApp')
-.controller('AgentController', function() {
+    .controller('AgentController', ['sessionFactory', function(sessionFactory) {
 
-    console.log('in agent controller');
     var vm = this;
 
-});
+    sessionFactory.get({}, function onSuccess(response) {
+        vm.configuration = response && response.data && response.data.configuration
+    });
+
+}]);
